@@ -1,0 +1,136 @@
+/* 
+  Suraj Kumar Portfolio - Custom Styles
+  Custom CSS variables, keyframes, and specific utility classes
+*/
+
+:root {
+    --brand-color: #0ea5e9;
+    --bg-color: #0c0e12;
+    --text-main: #e2e8f0;
+    --text-dim: #94a3b8;
+    --glass-bg: rgba(23, 25, 30, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.05);
+}
+
+@layer base {
+    body {
+        background-color: #0c0e12;
+        color: #e2e8f0;
+        font-family: 'Inter', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0c0e12;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1e293b;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #334155;
+}
+
+/* Glassmorphism Effect */
+.glass {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border);
+}
+
+/* Gradient Text Effect */
+.gradient-text {
+    background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+}
+
+/* Section Reveal Animation Base */
+.section-reveal {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+    transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform, opacity;
+}
+
+.section-reveal.active {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Skill Tags Hover Effect */
+.skill-tag {
+    background: rgba(56, 189, 248, 0.05);
+    border: 1px solid rgba(56, 189, 248, 0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.skill-tag:hover {
+    background: rgba(56, 189, 248, 0.15);
+    border-color: rgba(56, 189, 248, 0.4);
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 10px 20px -10px rgba(14, 165, 233, 0.3);
+}
+
+/* Hero Section Animation */
+@keyframes fadeInUpSubtle {
+    0% {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-hero-content {
+    animation: fadeInUpSubtle 1.2s ease-out forwards;
+}
+
+/* Navigation Link Effects */
+.nav-link {
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: #38bdf8;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+
+/* Custom Cursor (Optional concept) */
+.custom-cursor {
+    width: 10px;
+    height: 10px;
+    background-color: var(--brand-color);
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.1s ease;
+}
